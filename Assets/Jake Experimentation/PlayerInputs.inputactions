@@ -1,9 +1,9 @@
 {
     "version": 1,
-    "name": "Inputs",
+    "name": "PlayerInputs",
     "maps": [
         {
-            "name": "Notes",
+            "name": "InstrumentNotes",
             "id": "b1a9b18b-ff83-42c9-9eb8-5e9bf7b6585d",
             "actions": [
                 {
