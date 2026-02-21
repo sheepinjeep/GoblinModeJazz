@@ -4,8 +4,10 @@ using UnityEngine.InputSystem;
 
 public class InstrumentInputs : MonoBehaviour
 {
+    // --- INPUTS ---
+    // Input Context
     private PlayerInputs playerInputContext;
-    
+    // Notes
     private InputAction Ainput;
     private InputAction Binput;
     private InputAction Cinput;
@@ -14,9 +16,17 @@ public class InstrumentInputs : MonoBehaviour
     private InputAction Finput;
     private InputAction Ginput;
     private InputAction A2input;
-
+    
+    // --- NOTE PARTICLES ---
+    public ParticleSystem MusicNotes;
+    private bool noteSystemExists = false;
+    private bool notesPlaying = false;
+    
     private void Start()
     {
+        noteSystemExists = (MusicNotes != null);
+        Debug.Log(noteSystemExists);
+        
         playerInputContext =  new PlayerInputs();
         playerInputContext.InstrumentNotes.Enable();
         
@@ -38,28 +48,74 @@ public class InstrumentInputs : MonoBehaviour
     
     private void ParseInputs()
     {
+        notesPlaying = false;
+        
         if (Ainput.IsPressed())
-            Debug.Log("Do");
+        {
+            //Debug.Log("Do");
+            notesPlaying = true;
+        }
+            
 
         if (Binput.IsPressed())
-            Debug.Log("Re");
+        {
+            //Debug.Log("Re");
+            notesPlaying = true;
+        }
+            
         
         if (Cinput.IsPressed())
-            Debug.Log("Mi");
+        {
+            //Debug.Log("Mi");
+            notesPlaying = true;
+        }
         
         if (Dinput.IsPressed())
-            Debug.Log("Fa");
+        {
+            //Debug.Log("Fa");
+            notesPlaying = true;
+        }
         
         if (Einput.IsPressed())
-            Debug.Log("So");
+        {
+            //Debug.Log("So");
+            notesPlaying = true;
+        }
         
         if (Finput.IsPressed())
-            Debug.Log("La");
+        {
+            //Debug.Log("La");
+            notesPlaying = true;
+        }
         
         if (Ginput.IsPressed())
-            Debug.Log("Ti");
+        {
+            //Debug.Log("Ti");
+            notesPlaying = true;
+        }
         
         if (A2input.IsPressed())
-            Debug.Log("Do");
+        {
+            //Debug.Log("Do");
+            notesPlaying = true;
+        }
+        
+        
+        PlayMusicNotes();
+    }
+
+    private void PlayMusicNotes()
+    {
+        if (noteSystemExists)
+        {
+            if (notesPlaying)
+            {
+                MusicNotes.Play();
+            }
+            else
+            {
+                MusicNotes.Stop(false, ParticleSystemStopBehavior.StopEmitting);
+            }
+        }
     }
 }
