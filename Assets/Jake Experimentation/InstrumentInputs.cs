@@ -1,114 +1,73 @@
+using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Saxaphone))]
 public class InstrumentInputs : MonoBehaviour
 {
     // --- INPUTS ---
     // Input Context
     private PlayerInputs playerInputContext;
     // Notes
-    private InputAction Ainput;
-    private InputAction Binput;
-    private InputAction Cinput;
-    private InputAction Dinput;
-    private InputAction Einput;
-    private InputAction Finput;
-    private InputAction Ginput;
-    private InputAction A2input;
+    private List<InputAction> noteInputs = new List<InputAction>();
     
     // --- NOTE PARTICLES ---
     public ParticleSystem MusicNotes;
     private bool noteSystemExists = false;
-    private bool notesPlaying = false;
+
+    // --- SAX ---
+    [Tooltip("Saxophone :)")]
+    private Saxaphone saxophone;
+    
+    
     
     private void Start()
     {
-        noteSystemExists = (MusicNotes != null);
-        Debug.Log(noteSystemExists);
+        // Grab Ref to Sax
+        saxophone = GetComponent<Saxaphone>();
+        if (saxophone == null)
+            Debug.LogWarning("InstrumentInputs: Hey Boss I need a Saxophone to play.");
         
+        // --- INPUTS ---
+        // Get Player Inputs
         playerInputContext =  new PlayerInputs();
         playerInputContext.InstrumentNotes.Enable();
         
-        Ainput = playerInputContext.InstrumentNotes.A1;
-        Binput = playerInputContext.InstrumentNotes.B;
-        Cinput = playerInputContext.InstrumentNotes.C;
-        Dinput = playerInputContext.InstrumentNotes.D;
-        Einput = playerInputContext.InstrumentNotes.E;
-        Finput = playerInputContext.InstrumentNotes.F;
-        Ginput = playerInputContext.InstrumentNotes.G;
-        A2input = playerInputContext.InstrumentNotes.A2;
-    }
-
-    private void Update()
-    {
-        ParseInputs();
+        // Collect Note Inputs
+        noteInputs.Add(playerInputContext.InstrumentNotes.A1);
+        noteInputs.Add(playerInputContext.InstrumentNotes.B);
+        noteInputs.Add(playerInputContext.InstrumentNotes.C);
+        noteInputs.Add(playerInputContext.InstrumentNotes.D);
+        noteInputs.Add(playerInputContext.InstrumentNotes.E);
+        noteInputs.Add(playerInputContext.InstrumentNotes.F);
+        noteInputs.Add(playerInputContext.InstrumentNotes.G);
+        noteInputs.Add(playerInputContext.InstrumentNotes.A2);
+        
+        // Assign Events to Note Inputs
+        for (int i = 0; i < noteInputs.Count; i++)
+        {
+            int note = i;
+            noteInputs[i].performed += ctx => saxophone.StartNote(note);
+            noteInputs[i].canceled += ctx => saxophone.EndNote();
+        }
+        
+        // Octave Shifting Inputs
+        playerInputContext.InstrumentNotes.OctaveUp.performed += ctx => saxophone.ShiftOctave(1);
+        playerInputContext.InstrumentNotes.OctaveDown.performed += ctx => saxophone.ShiftOctave(-1);
+        
+        
+        // --- PARTICLES --- 
+        noteSystemExists = (MusicNotes != null);
+        Debug.Log(noteSystemExists);
     }
     
-    
-    private void ParseInputs()
-    {
-        notesPlaying = false;
-        
-        if (Ainput.IsPressed())
-        {
-            //Debug.Log("Do");
-            notesPlaying = true;
-        }
-            
-
-        if (Binput.IsPressed())
-        {
-            //Debug.Log("Re");
-            notesPlaying = true;
-        }
-            
-        
-        if (Cinput.IsPressed())
-        {
-            //Debug.Log("Mi");
-            notesPlaying = true;
-        }
-        
-        if (Dinput.IsPressed())
-        {
-            //Debug.Log("Fa");
-            notesPlaying = true;
-        }
-        
-        if (Einput.IsPressed())
-        {
-            //Debug.Log("So");
-            notesPlaying = true;
-        }
-        
-        if (Finput.IsPressed())
-        {
-            //Debug.Log("La");
-            notesPlaying = true;
-        }
-        
-        if (Ginput.IsPressed())
-        {
-            //Debug.Log("Ti");
-            notesPlaying = true;
-        }
-        
-        if (A2input.IsPressed())
-        {
-            //Debug.Log("Do");
-            notesPlaying = true;
-        }
-        
-        
-        PlayMusicNotes();
-    }
-
     private void PlayMusicNotes()
     {
         if (noteSystemExists)
         {
-            if (notesPlaying)
+            if (saxophone.IsPlaying())
             {
                 MusicNotes.Play();
             }

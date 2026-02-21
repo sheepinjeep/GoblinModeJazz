@@ -1,17 +1,20 @@
+using System;
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
+using Random = UnityEngine.Random;
 
 
 public class Saxaphone : MonoBehaviour
 {
-    public InputActionReference testKeyEvent1;
-    public InputActionReference testKeyEvent2;
-
+    [Header("Which scale to use")]
     public MusicScale currentScale;
 
     private EventInstance saxaphoneEvent;
+    
+    [Header("Pitch Settings")]
     [Range(-24f, 24f)]
     public float pitchSmoothTime = 0.1f;
     public float pitchValue = 0f;
@@ -20,17 +23,9 @@ public class Saxaphone : MonoBehaviour
 
     private int noteCounter = 0;
 
+    private int currentOctave = 0;
+    
     private void Awake() {
-        //placeholder stuff for real implementation
-        testKeyEvent1.action.performed += ctx => StartNote(randomNote());
-        testKeyEvent2.action.performed += ctx => StartNote(randomNote());
-
-        testKeyEvent1.action.canceled += ctx => EndNote();
-        testKeyEvent2.action.canceled += ctx => EndNote();
-
-        testKeyEvent1.action.Enable();
-        testKeyEvent2.action.Enable();
-
         saxaphoneEvent = RuntimeManager.CreateInstance("event:/SaxNote");
     }
 
@@ -70,12 +65,14 @@ public class Saxaphone : MonoBehaviour
     }
 
     //translates from integer of a note in a scale to semitones
-    private void SetNote(int note)
+    private void SetNote(int localNote)
     {
         float semiToneValue = 0;
 
         int scaleLength = currentScale.intervals.Length;
-
+        
+        int note = (currentOctave * 7) +  localNote;
+        
         if (note < 0)
         {
             //subtract semitones from the end to the front of of the scale
@@ -95,5 +92,23 @@ public class Saxaphone : MonoBehaviour
         if (noteCounter <= 1) pitchValue = semiToneValue;     
         desiredPitchValue = semiToneValue;
     }
-
+    /// <summary>
+    /// Shifts the octave up or down based on the given amount.
+    /// </summary>
+    public void ShiftOctave(int shiftAmount)
+    {
+        currentOctave = Math.Clamp(currentOctave + shiftAmount, -2, 1);
+        Debug.Log(currentOctave);
+    }
+    
+    /// <summary>
+    /// Returns whether the saxophone is currently playing notes.
+    /// </summary>
+    public bool IsPlaying()
+    {
+        if (noteCounter > 1)
+            return true;
+        
+        return false;
+    }
 }
