@@ -38,7 +38,7 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(LoadScene());
+        //StartCoroutine(LoadScene());
         slideOutShort = RuntimeManager.CreateInstance("event:/SlideOutShort");
         slideInShort = RuntimeManager.CreateInstance("event:/SlideInShort");
         slideOutLong = RuntimeManager.CreateInstance("event:/SlideOutLong");
@@ -65,7 +65,8 @@ public class MainMenu : MonoBehaviour
 
                 if(fadeOutTime >= 1)
                 {
-                    sceneRequested = true;
+                    SceneManager.LoadScene(sceneName);
+                    //sceneRequested = true;
                 }
             }
             return;
