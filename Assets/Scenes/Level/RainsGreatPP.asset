@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06437c1ff663d574d9447842ba0a72e4, type: 3}
   m_Name: ScreenSpaceLensFlare
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.ScreenSpaceLensFlare
-  active: 1
+  active: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 5
+    m_Value: 1
   tintColor:
     m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -85,7 +85,7 @@ MonoBehaviour:
     m_Value: {x: 0.99066824, y: 0.9864462, z: 1, w: 0}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.74095756, z: 0.908262, w: 0}
+    m_Value: {x: 1, y: 0.74095756, z: 0.908262, w: 0.4772992}
   gain:
     m_OverrideState: 1
     m_Value: {x: 0.86661744, y: 0.8597214, z: 1, w: 0}
