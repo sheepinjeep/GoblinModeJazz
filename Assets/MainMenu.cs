@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using FMODUnity;
+using FMOD.Studio;
 
 public class MainMenu : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class MainMenu : MonoBehaviour
     public Image VinylRecord;
     public Image FadePannel;
     public Canvas canvas;
+    public StudioEventEmitter ambience;
+
 
     [Header("Record Pop Out")]
     public Vector2 popOutPos;
@@ -30,9 +34,14 @@ public class MainMenu : MonoBehaviour
     private float fadeOutTime;
     private bool sceneRequested = false;
 
+    private EventInstance slideOutShort, slideInShort, slideOutLong;
+
     void Start()
     {
         StartCoroutine(LoadScene());
+        slideOutShort = RuntimeManager.CreateInstance("event:/SlideOutShort");
+        slideInShort = RuntimeManager.CreateInstance("event:/SlideInShort");
+        slideOutLong = RuntimeManager.CreateInstance("event:/SlideOutLong");
     }
 
     // Update is called once per frame
@@ -50,6 +59,7 @@ public class MainMenu : MonoBehaviour
 
             if (leaveTime >= 1)
             {
+                ambience.SetParameter("ToVinyl",1);
                 fadeOutTime = Mathf.Min(fadeOutTime + Time.deltaTime / fadeOutSpeed, 1);
                 FadePannel.color = new Vector4(FadePannel.color.r,FadePannel.color.g,FadePannel.color.b, fadeOutTime);
 
@@ -75,16 +85,19 @@ public class MainMenu : MonoBehaviour
     public void PopOut()
     {
         popState = true;
+        slideOutShort.start();
     }
 
     public void PopIn()
     {
         popState = false;
+        slideInShort.start();
     }
 
     public void startGame()
     {
         leaveState = true;
+        slideOutLong.start();
     }
 
     IEnumerator LoadScene()
