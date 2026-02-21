@@ -24,6 +24,7 @@ public class Saxaphone : MonoBehaviour
     private int noteCounter = 0;
 
     private int currentOctave = 0;
+    private int currentNote = 0;
     
     private void Awake() {
         saxaphoneEvent = RuntimeManager.CreateInstance("event:/SaxNote");
@@ -71,6 +72,8 @@ public class Saxaphone : MonoBehaviour
 
         int scaleLength = currentScale.intervals.Length;
         
+        
+        currentNote = localNote;
         int note = (currentOctave * 7) +  localNote;
         
         if (note < 0)
@@ -106,9 +109,14 @@ public class Saxaphone : MonoBehaviour
     /// </summary>
     public bool IsPlaying()
     {
-        if (noteCounter > 1)
+        if (noteCounter >= 1)
             return true;
         
         return false;
+    }
+
+    public int GetCurrentNote()
+    {
+        return currentNote;
     }
 }

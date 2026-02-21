@@ -1,8 +1,7 @@
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = Unity.Mathematics.Random;
 
 [RequireComponent(typeof(Saxaphone))]
 public class InstrumentInputs : MonoBehaviour
@@ -16,7 +15,9 @@ public class InstrumentInputs : MonoBehaviour
     // --- NOTE PARTICLES ---
     public ParticleSystem MusicNotes;
     private bool noteSystemExists = false;
-
+    private List<Color>  colours = new List<Color>();
+    
+    
     // --- SAX ---
     [Tooltip("Saxophone :)")]
     private Saxaphone saxophone;
@@ -60,7 +61,21 @@ public class InstrumentInputs : MonoBehaviour
         
         // --- PARTICLES --- 
         noteSystemExists = (MusicNotes != null);
-        Debug.Log(noteSystemExists);
+        
+        // Add colours for notes
+        colours.Add( new Color(230/255f, 38/255f, 31/255f));
+        colours.Add( new Color(235/255f, 117/255f, 50/255f));
+        colours.Add( new Color(247/255f, 208/255f, 56/255f));
+        colours.Add( new Color(163/255f, 224/255f, 72/255f));
+        colours.Add( new Color(73/255f, 218/255f, 154/255f));
+        colours.Add( new Color(52/255f, 187/255f, 230/255f));
+        colours.Add( new Color(67/255f, 85/255f, 219/255f));
+        colours.Add( new Color(210/255f, 59/255f, 231/255f));
+    }
+
+    private void Update()
+    {
+        PlayMusicNotes();
     }
     
     private void PlayMusicNotes()
@@ -69,12 +84,21 @@ public class InstrumentInputs : MonoBehaviour
         {
             if (saxophone.IsPlaying())
             {
-                MusicNotes.Play();
+                if (!MusicNotes.isEmitting)
+                {
+                    var main = MusicNotes.main;
+                    main.startColor = colours[saxophone.GetCurrentNote()];
+                    Debug.Log(colours[saxophone.GetCurrentNote()]);
+                    MusicNotes.Play();
+                }
+
             }
             else
             {
-                MusicNotes.Stop(false, ParticleSystemStopBehavior.StopEmitting);
+                MusicNotes.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             }
         }
     }
+    
+    
 }
