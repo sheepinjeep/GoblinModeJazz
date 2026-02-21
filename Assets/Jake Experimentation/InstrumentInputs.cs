@@ -22,6 +22,9 @@ public class InstrumentInputs : MonoBehaviour
     [Tooltip("Saxophone :)")]
     private Saxaphone saxophone;
     
+    // --- COMBO STUFF ---
+    private List<int> noteHistory = new List<int>();
+    public List<SO_NoteCombo> combos =  new List<SO_NoteCombo>();
     
     
     private void Start()
@@ -51,6 +54,7 @@ public class InstrumentInputs : MonoBehaviour
         {
             int note = i;
             noteInputs[i].performed += ctx => saxophone.StartNote(note);
+            noteInputs[i].performed += ctx => 
             noteInputs[i].canceled += ctx => saxophone.EndNote();
         }
         
@@ -99,6 +103,25 @@ public class InstrumentInputs : MonoBehaviour
             }
         }
     }
-    
-    
+
+    private void UpdateNoteHistory(int note)
+    {
+        noteHistory.Add(note);
+        if (noteHistory.Count > 20)
+        {
+            noteHistory.RemoveAt(0);
+        }
+
+        foreach (SO_NoteCombo combo in combos)
+        {
+            for (int i = 0; i < combo.comboNumbers.Count; i++)
+            {
+                if (!noteHistory.Contains(combo.comboNumbers[i]))
+                    break;
+                // -------------
+                // NOT COMPLETE
+                // -------------
+            }
+        }
+    }
 }
