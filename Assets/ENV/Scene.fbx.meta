@@ -17,6 +17,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Glow
+    second: {fileID: 2100000, guid: 14826c01ca188624dbb94b3f1412098b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Gradient
     second: {fileID: 2100000, guid: 2d4a7c03453187e47a971ae130fb6559, type: 2}
   - first:
