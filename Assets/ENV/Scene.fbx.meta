@@ -27,6 +27,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Gradient.001
+    second: {fileID: 2100000, guid: 2d4a7c03453187e47a971ae130fb6559, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: floor
     second: {fileID: 2100000, guid: 997d2239f2505f54ab350d0fa6df6d72, type: 2}
   materials:
