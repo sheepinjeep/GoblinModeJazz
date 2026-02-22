@@ -1,9 +1,29 @@
 fileFormatVersion: 2
-guid: 33904bed4dec4ff4882ace6d484b9093
+guid: eb58f9f93ec963e44a8e874a40d31003
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: 86e7a4966c926e14dab5cbe798085b17, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: standardSurface4
+    second: {fileID: 2100000, guid: 86e7a4966c926e14dab5cbe798085b17, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: standardSurface6
+    second: {fileID: 2100000, guid: 86e7a4966c926e14dab5cbe798085b17, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: standardSurface9
+    second: {fileID: 2100000, guid: 86e7a4966c926e14dab5cbe798085b17, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -96,11 +116,11 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: eb58f9f93ec963e44a8e874a40d31003, type: 3}
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 2
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
