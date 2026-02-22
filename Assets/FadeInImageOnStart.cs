@@ -14,6 +14,7 @@ public class FadeInImageOnStart : MonoBehaviour
     void Start()
     {
         image = GetComponent<Image>();
+        image.enabled = true;
     }
 
     // Update is called once per frame
