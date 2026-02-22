@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class Saxaphone : MonoBehaviour
 {
+    public Saxophonist guy;
+
     [SerializeField]private InputActionReference TestAction;
     int testNote = 0;
 
@@ -69,6 +71,7 @@ public class Saxaphone : MonoBehaviour
     //translates from integer of a note in a scale to semitones
     private void SetNote(int localNote)
     {
+        guy.ChangePose();
         float semiToneValue = currentScale.getStartNote();
 
         int scaleLength = currentScale.GetScale().Length;
