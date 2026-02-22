@@ -38,38 +38,13 @@ public class MainMenu : MonoBehaviour
 
     private EventInstance slideOutShort, slideInShort, slideOutLong;
 
-    private EVENT_CALLBACK markerCallback;
-
     void Start()
     {
         StartCoroutine(LoadScene());
         slideOutShort = RuntimeManager.CreateInstance("event:/SlideOutShort");
         slideInShort = RuntimeManager.CreateInstance("event:/SlideInShort");
         slideOutLong = RuntimeManager.CreateInstance("event:/SlideOutLong");
-        
-        //args have to be name of desired function the trigger
-        markerCallback = new EVENT_CALLBACK(MarkerCallback);
-        //do this because the event might get garbage collected if you dont?
-        ambience.EventInstance.setCallback(markerCallback, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
     }
-
-    //just basically coppy this but name it something better
-    private FMOD.RESULT MarkerCallback(FMOD.Studio.EVENT_CALLBACK_TYPE type, IntPtr eventPtr, IntPtr parameters)
-    {
-        if (type == FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER)
-        {
-            // Retrieve the marker properties
-            var marker = (FMOD.Studio.TIMELINE_MARKER_PROPERTIES)Marshal.PtrToStructure(parameters, typeof(FMOD.Studio.TIMELINE_MARKER_PROPERTIES));
-            //you can get the name which is really cool
-            //will probably put key change in dict and use string keys?
-            Debug.Log("Marker Reached: " + marker.name);
-
-            // *** Place your Unity code logic here ***
-            // You can trigger animations, UI changes, etc. based on marker.name
-        }
-        return FMOD.RESULT.OK;
-    }
-
 
     // Update is called once per frame
     void Update()
