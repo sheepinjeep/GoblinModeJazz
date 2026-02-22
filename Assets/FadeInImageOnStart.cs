@@ -43,6 +43,10 @@ public class FadeInImageOnStart : MonoBehaviour
             lerpTime = 0;
             usingCamera = cameras[Random.Range(0,cameras.Length)];
             dolly = usingCamera.GetComponent<CinemachineSplineDolly>();
+
+            if(usingCamera != startCam)
+                dolly.CameraPosition = animationCurve.Evaluate(lerpTime/funnyLerpFactor);
+
             usingCamera.Prioritize();
             speed = Random.Range(4f,8f);
         }
