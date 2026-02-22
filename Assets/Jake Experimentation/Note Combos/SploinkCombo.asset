@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8b2ea69083d6d47ae7866eff2e5cc5, type: 3}
   m_Name: SploinkCombo
   m_EditorClassIdentifier: Assembly-CSharp::SO_NoteCombo
-  soundEffectName: event:/Sploink
+  soundEffectName: event:/sfxSploink
   comboNumbers: 0247420

@@ -330,7 +330,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8a3c8109-53ed-48d7-abcc-a5fff0acd028"",
-                    ""path"": ""<Keyboard>/g"",
+                    ""path"": ""<Keyboard>/j"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -363,7 +363,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8e4af56a-9b7a-4742-8a47-cae2c6d3dd2d"",
-                    ""path"": ""<Keyboard>/h"",
+                    ""path"": ""<Keyboard>/k"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -396,7 +396,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d956c07b-26f5-4b71-a5bf-d90357fcd3d8"",
-                    ""path"": ""<Keyboard>/j"",
+                    ""path"": ""<Keyboard>/l"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -429,7 +429,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""7bd21057-715a-4cba-8c79-348bb90142f8"",
-                    ""path"": ""<Keyboard>/k"",
+                    ""path"": ""<Keyboard>/semicolon"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
