@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InstrumentInputs
   MusicNotes: {fileID: 1683658016}
+  combos: []
 --- !u!114 &1275995133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +178,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 553454bb68d386541af26fb499f60fbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Saxaphone
-  currentScale: {fileID: 11400000, guid: 40fa89fa3bb8a1141abf98159d168551, type: 2}
+  TestAction: {fileID: 0}
+  currentScale: {fileID: 11400000, guid: c79f744a81f84f14b8476e049c6a454c, type: 2}
   pitchSmoothTime: 0.1
   pitchValue: 0
 --- !u!1 &1644664113

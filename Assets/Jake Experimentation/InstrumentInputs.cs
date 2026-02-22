@@ -23,7 +23,7 @@ public class InstrumentInputs : MonoBehaviour
     private Saxaphone saxophone;
     
     // --- COMBO STUFF ---
-    private List<int> noteHistory = new List<int>();
+    private string noteHistory = "";
     public List<SO_NoteCombo> combos =  new List<SO_NoteCombo>();
     
     
@@ -53,8 +53,11 @@ public class InstrumentInputs : MonoBehaviour
         for (int i = 0; i < noteInputs.Count; i++)
         {
             int note = i;
-            noteInputs[i].performed += ctx => saxophone.StartNote(note);
-            noteInputs[i].performed += ctx => 
+            noteInputs[i].performed += ctx =>
+            {
+                saxophone.StartNote(note);
+                
+            };
             noteInputs[i].canceled += ctx => saxophone.EndNote();
         }
         
@@ -92,7 +95,6 @@ public class InstrumentInputs : MonoBehaviour
                 {
                     var main = MusicNotes.main;
                     main.startColor = colours[saxophone.GetCurrentNote()];
-                    Debug.Log(colours[saxophone.GetCurrentNote()]);
                     MusicNotes.Play();
                 }
 
@@ -106,22 +108,17 @@ public class InstrumentInputs : MonoBehaviour
 
     private void UpdateNoteHistory(int note)
     {
-        noteHistory.Add(note);
-        if (noteHistory.Count > 20)
+        noteHistory += note;
+        if (noteHistory.Length > 20)
         {
-            noteHistory.RemoveAt(0);
+            noteHistory = noteHistory.Remove(0, 1);
         }
 
         foreach (SO_NoteCombo combo in combos)
         {
-            for (int i = 0; i < combo.comboNumbers.Count; i++)
-            {
-                if (!noteHistory.Contains(combo.comboNumbers[i]))
-                    break;
-                // -------------
-                // NOT COMPLETE
-                // -------------
-            }
+            // -------------
+            // NOT COMPLETE
+            // -------------
         }
     }
 }
