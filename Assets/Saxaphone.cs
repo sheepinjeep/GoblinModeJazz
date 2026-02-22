@@ -71,7 +71,7 @@ public class Saxaphone : MonoBehaviour
     //translates from integer of a note in a scale to semitones
     private void SetNote(int localNote)
     {
-        guy.ChangePose();
+        guy?.ChangePose();
         float semiToneValue = currentScale.getStartNote();
 
         int scaleLength = currentScale.GetScale().Length;
