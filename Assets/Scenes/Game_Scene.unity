@@ -119,6 +119,55 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &2319094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2319095}
+  - component: {fileID: 2319096}
+  m_Layer: 0
+  m_Name: HappyGoblins
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2319095
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2319094}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 82589987}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2319096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2319094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8c8db6423bc6640956381a7a85c72e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  animators:
+  - {fileID: 1056975827}
+  - {fileID: 1845996235}
+  - {fileID: 513803885}
+  - {fileID: 2130775425}
 --- !u!1001 &11985052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -415,6 +464,7 @@ Transform:
   m_Children:
   - {fileID: 134124384}
   - {fileID: 17324778}
+  - {fileID: 2319095}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &89453818
@@ -498,6 +548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InstrumentInputs
   MusicNotes: {fileID: 2131964826}
+  ComboParticles: {fileID: 0}
   combos: []
 --- !u!4 &134124384
 Transform:
@@ -1327,6 +1378,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15f356d5bff12ca4cba0612f09bd47a3, type: 3}
+--- !u!95 &513803885 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 15f356d5bff12ca4cba0612f09bd47a3, type: 3}
+  m_PrefabInstance: {fileID: 513803884}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &564468101
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2252,6 +2308,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb58f9f93ec963e44a8e874a40d31003, type: 3}
+--- !u!95 &1056975827 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: eb58f9f93ec963e44a8e874a40d31003, type: 3}
+  m_PrefabInstance: {fileID: 1056975826}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1061592966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3654,6 +3715,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5a02b312be6481429f1d1a5173b2d35, type: 3}
+--- !u!95 &1845996235 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: d5a02b312be6481429f1d1a5173b2d35, type: 3}
+  m_PrefabInstance: {fileID: 1845996234}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1963544988
 GameObject:
   m_ObjectHideFlags: 0
@@ -3741,8 +3807,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1963544988}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.080431476, y: 0.8597903, z: -0.14300753, w: 0.48357043}
-  m_LocalPosition: {x: -4, y: 3.74, z: 4.19}
+  m_LocalRotation: {x: 0.019477723, y: 0.9715006, z: -0.086002246, w: 0.22002473}
+  m_LocalPosition: {x: -6.38, y: 4.78, z: 15.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4186,6 +4252,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02bd65d90876eda4ab3a47beb822be95, type: 3}
+--- !u!95 &2130775425 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 02bd65d90876eda4ab3a47beb822be95, type: 3}
+  m_PrefabInstance: {fileID: 2130775424}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2131964825
 GameObject:
   m_ObjectHideFlags: 0
