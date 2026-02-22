@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db8b2ea69083d6d47ae7866eff2e5cc5, type: 3}
-  m_Name: BasicNoteCombo
+  m_Name: BelchCombo
   m_EditorClassIdentifier: Assembly-CSharp::SO_NoteCombo
-  comboNumbers: 00000000010000000200000003000000
+  soundEffectName: event:/Burp
+  comboNumbers: 613246

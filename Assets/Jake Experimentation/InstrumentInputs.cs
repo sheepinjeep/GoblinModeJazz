@@ -14,7 +14,9 @@ public class InstrumentInputs : MonoBehaviour
     
     // --- NOTE PARTICLES ---
     public ParticleSystem MusicNotes;
+    public ParticleSystem ComboParticles;
     private bool noteSystemExists = false;
+    private bool comboPartExists = false;
     private List<Color>  colours = new List<Color>();
     
     
@@ -56,7 +58,7 @@ public class InstrumentInputs : MonoBehaviour
             noteInputs[i].performed += ctx =>
             {
                 saxophone.StartNote(note);
-                
+                UpdateNoteHistory(note);
             };
             noteInputs[i].canceled += ctx => saxophone.EndNote();
         }
@@ -68,6 +70,7 @@ public class InstrumentInputs : MonoBehaviour
         
         // --- PARTICLES --- 
         noteSystemExists = (MusicNotes != null);
+        comboPartExists = (ComboParticles != null);
         
         // Add colours for notes
         colours.Add( new Color(230/255f, 38/255f, 31/255f));
@@ -78,6 +81,12 @@ public class InstrumentInputs : MonoBehaviour
         colours.Add( new Color(52/255f, 187/255f, 230/255f));
         colours.Add( new Color(67/255f, 85/255f, 219/255f));
         colours.Add( new Color(210/255f, 59/255f, 231/255f));
+        
+        // --- CREATE COMBO EVENT INSTANCES ---
+        foreach (SO_NoteCombo combo in combos)
+        {
+            combo.CreateEventInstance();
+        }
     }
 
     private void Update()
@@ -108,7 +117,11 @@ public class InstrumentInputs : MonoBehaviour
 
     private void UpdateNoteHistory(int note)
     {
+        if (note == 7)
+            note = 0;
+        
         noteHistory += note;
+        
         if (noteHistory.Length > 20)
         {
             noteHistory = noteHistory.Remove(0, 1);
@@ -116,9 +129,14 @@ public class InstrumentInputs : MonoBehaviour
 
         foreach (SO_NoteCombo combo in combos)
         {
-            // -------------
-            // NOT COMPLETE
-            // -------------
+            if ( noteHistory.Contains(combo.comboNumbers) )
+            {
+                Debug.Log("COMBO TIME!!!");
+                combo.soundEffect.start();
+                if (comboPartExists)
+                    ComboParticles.Play();
+                noteHistory = "";
+            }
         }
     }
 }
