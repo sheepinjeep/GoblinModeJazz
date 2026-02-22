@@ -68,9 +68,9 @@ public class Saxaphone : MonoBehaviour
     //translates from integer of a note in a scale to semitones
     private void SetNote(int localNote)
     {
-        float semiToneValue = 0;
+        float semiToneValue = currentScale.getStartNote();
 
-        int scaleLength = currentScale.intervals.Length;
+        int scaleLength = currentScale.GetScale().Length;
         
         
         currentNote = localNote;
@@ -81,7 +81,7 @@ public class Saxaphone : MonoBehaviour
             //subtract semitones from the end to the front of of the scale
             for (int i = 0; i < -note; i++)
             {
-                semiToneValue -= currentScale.intervals[scaleLength-1-(i%scaleLength)];
+                semiToneValue -= currentScale.GetScale()[scaleLength-1-(i%scaleLength)];
             } 
         }
         else
@@ -89,7 +89,7 @@ public class Saxaphone : MonoBehaviour
             //adds semitones from the start to the end of the array
             for (int i = 0; i <= note; i++)
             {
-                semiToneValue += currentScale.intervals[i%scaleLength];
+                semiToneValue += currentScale.GetScale()[i%scaleLength];
             } 
         }   
         if (noteCounter <= 1) pitchValue = semiToneValue;     

@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90b43a5da09f49a4e978880f28457e1b, type: 3}
-  m_Name: Eb Major
+  m_Name: C# Lydian
   m_EditorClassIdentifier: Assembly-CSharp::MusicScale
-  intervals: 0000000002000000020000000100000002000000020000000200000001000000
+  startNote: -4
+  scaleType: 4
