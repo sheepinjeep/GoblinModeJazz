@@ -493,7 +493,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InstrumentInputs
   MusicNotes: {fileID: 2131964826}
   ComboParticles: {fileID: 0}
-  combos: []
+  combos:
+  - {fileID: 11400000, guid: 00502858b01bb1249bf4e793c74b4e4a, type: 2}
+  - {fileID: 11400000, guid: fef37dba908d81240b0be3fd64a2f605, type: 2}
+  - {fileID: 11400000, guid: 87bf66d313b02ab4099339ab4ffcddd8, type: 2}
+  - {fileID: 11400000, guid: 036d594cd52a5a546b66982e678cb483, type: 2}
+  - {fileID: 11400000, guid: 1dd8777bd41828e4993617a4d82fb31a, type: 2}
+  happyGoblins: {fileID: 2319096}
 --- !u!4 &134124384
 Transform:
   m_ObjectHideFlags: 0

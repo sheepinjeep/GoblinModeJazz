@@ -27,6 +27,8 @@ public class InstrumentInputs : MonoBehaviour
     // --- COMBO STUFF ---
     private string noteHistory = "";
     public List<SO_NoteCombo> combos =  new List<SO_NoteCombo>();
+
+    public HappyGoblins happyGoblins;
     
     
     private void Start()
@@ -135,6 +137,8 @@ public class InstrumentInputs : MonoBehaviour
                 combo.soundEffect.start();
                 if (comboPartExists)
                     ComboParticles.Play();
+
+                happyGoblins.BeHappy();
                 noteHistory = "";
             }
         }
