@@ -184,13 +184,13 @@ MonoBehaviour:
     Position: 0
     Units: 1
   SplineOffset: {x: 0, y: 0, z: 0}
-  CameraRotation: 1
+  CameraRotation: 0
   Damping:
-    Enabled: 1
+    Enabled: 0
     Position: {x: 1, y: 1, z: 1}
     Angular: 1
   AutomaticDolly:
-    Enabled: 1
+    Enabled: 0
     Method:
       rid: 2605068992843088021
   m_LegacyPosition: -1
@@ -202,7 +202,7 @@ MonoBehaviour:
     - rid: 2605068992843088021
       type: {class: SplineAutoDolly/FixedSpeed, ns: Unity.Cinemachine, asm: Unity.Cinemachine}
       data:
-        Speed: 14
+        Speed: 10
 --- !u!114 &30202635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,7 +254,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30202632}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.082371145, y: 0.97353345, z: -0.087651834, w: 0.19433157}
+  m_LocalRotation: {x: 0.019278202, y: 0.9768218, z: -0.100028425, w: 0.18826018}
   m_LocalPosition: {x: -6.38, y: 4.78, z: 15.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -309,12 +309,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -356,7 +356,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1045366677}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 986775740}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -429,53 +429,53 @@ MonoBehaviour:
       TangentIn:
         x: -0
         y: -0
-        z: -0.8059603
+        z: -0.81305665
       TangentOut:
         x: 0
         y: 0
-        z: 0.8059603
+        z: 0.81305665
       Rotation:
         value:
-          x: -0.009700336
-          y: 0.6838467
-          z: -0.18057826
-          w: 0.70686
+          x: 0.13077235
+          y: 0.77996874
+          z: -0.21791622
+          w: 0.5718916
     - Position:
-        x: 1.44
-        y: 2.9
-        z: 15.54
+        x: 0.41
+        y: 0.8
+        z: 12.98
       TangentIn:
         x: -0
         y: -0
-        z: -1.8954685
+        z: -1.8191372
       TangentOut:
         x: 0
         y: 0
-        z: 2.1446378
+        z: 1.590852
       Rotation:
         value:
-          x: -0.042746816
-          y: 0.9216511
-          z: -0.1177813
-          w: 0.36723205
+          x: 0.35856056
+          y: 0.8875917
+          z: 0.047016215
+          w: 0.28531498
     - Position:
-        x: 0.85
+        x: 0.05
         y: 2.76
-        z: 5.24
+        z: 7.09
       TangentIn:
         x: -0
         y: -0
-        z: -1.0317835
+        z: -0.62179816
       TangentOut:
         x: 0
         y: 0
-        z: 1.0317835
+        z: 0.62179816
       Rotation:
         value:
-          x: 0.037921585
-          y: 0.9988482
-          z: -0.007867586
-          w: -0.028325545
+          x: 0.10234088
+          y: 0.98140335
+          z: 0.1558235
+          w: -0.045746133
     m_MetaData:
     - Mode: 0
       Tension: 0.5
@@ -595,6 +595,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 285579044}
   - {fileID: 30202636}
   - {fileID: 677238335}
   - {fileID: 1796491924}
@@ -626,9 +627,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1045366676}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.0167596, y: 3.0167596, z: 3.0167596}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 285579044}
@@ -636,7 +637,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -1497.4441, y: -722}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1045366678
 MonoBehaviour:
@@ -688,7 +689,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f83c39cca500146b3e213ded82536c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  image: {fileID: 0}
+  dolly: {fileID: 30202634}
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  image: {fileID: 1045366678}
   speed: 3
   lerpTime: 0
 --- !u!1 &1220874377
@@ -1168,7 +1194,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1963544988}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.082371145, y: 0.97353345, z: -0.087651834, w: 0.19433157}
+  m_LocalRotation: {x: 0.019278212, y: 0.9768218, z: -0.10002845, w: 0.18826023}
   m_LocalPosition: {x: -6.38, y: 4.78, z: 15.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1313,5 +1339,4 @@ SceneRoots:
   - {fileID: 1757684289}
   - {fileID: 1220874379}
   - {fileID: 986775740}
-  - {fileID: 285579044}
   - {fileID: 1741336899}
