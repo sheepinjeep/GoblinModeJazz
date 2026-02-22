@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4645843943944664769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4189568873936877073}
+  - component: {fileID: 552270403602067339}
+  - component: {fileID: 1342338434903357194}
+  m_Layer: 0
+  m_Name: BG Music Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4189568873936877073
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4645843943944664769}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &552270403602067339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4645843943944664769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -835131203
+      Data2: 1194259575
+      Data3: -1205728842
+      Data4: 299185726
+    Path: event:/JazzMusic
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1342338434903357194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4645843943944664769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2240c22bfac4af147ab02a57ce273643, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  saxaphone: {fileID: 0}
+  keys:
+  - {fileID: 11400000, guid: becb41907fe455f48a15999786546e2b, type: 2}
+  - {fileID: 11400000, guid: 7c4b089423d72464686be80c9609ceba, type: 2}
+  - {fileID: 11400000, guid: ced6cec1da76435438915292ae223e6f, type: 2}
+  - {fileID: 11400000, guid: 62e372d69d4a4c84e8d642590f57251b, type: 2}
+  - {fileID: 11400000, guid: c79f744a81f84f14b8476e049c6a454c, type: 2}
+  - {fileID: 11400000, guid: ccc2d20e10f2dca4091bc366271088de, type: 2}
+  - {fileID: 11400000, guid: 701abf96300c12642996c5887d955ec4, type: 2}
+  - {fileID: 11400000, guid: c8f8e2c846a68cc49b5e251d4491ee8d, type: 2}
+  - {fileID: 11400000, guid: 1c909b45f90415247b99ab4a162766c8, type: 2}
+  - {fileID: 11400000, guid: caad125b43daf3643b6c98114f485161, type: 2}
+  - {fileID: 11400000, guid: 18a86aefdfa7fea47945bc766fe8a04b, type: 2}
+  - {fileID: 11400000, guid: 5e0689a211f811e429efdf64c777d222, type: 2}
+  - {fileID: 11400000, guid: ec1697eb4259f63408ad93b3b81ebe2d, type: 2}
+  - {fileID: 11400000, guid: c61d2a29737aa0a4e88d2fa6009a9338, type: 2}
+  eventEmitter: {fileID: 552270403602067339}

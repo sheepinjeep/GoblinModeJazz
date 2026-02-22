@@ -3,12 +3,12 @@ using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
-using Random = UnityEngine.Random;
-
 
 public class Saxaphone : MonoBehaviour
 {
+    [SerializeField]private InputActionReference TestAction;
+    int testNote = 0;
+
     [Header("Which scale to use")]
     public MusicScale currentScale;
 
@@ -28,12 +28,13 @@ public class Saxaphone : MonoBehaviour
     
     private void Awake() {
         saxaphoneEvent = RuntimeManager.CreateInstance("event:/SaxNote");
-    }
 
-    private int randomNote(int range = 8)
-    {
-        int result = Random.Range(-range,range);
-        return result;
+        if (TestAction != null)
+        {
+            TestAction.action.Enable();
+            TestAction.action.performed += ctx => {StartNote(testNote); testNote++; testNote=testNote%8;};
+            TestAction.action.canceled += ctx => EndNote();
+        }
     }
 
     private void Update()
@@ -72,8 +73,8 @@ public class Saxaphone : MonoBehaviour
 
         int scaleLength = currentScale.GetScale().Length;
         
-        
         currentNote = localNote;
+        //int note = localNote;
         int note = (currentOctave * 7) +  localNote;
         
         if (note < 0)
@@ -91,7 +92,7 @@ public class Saxaphone : MonoBehaviour
             {
                 semiToneValue += currentScale.GetScale()[i%scaleLength];
             } 
-        }   
+        }  
         if (noteCounter <= 1) pitchValue = semiToneValue;     
         desiredPitchValue = semiToneValue;
     }
