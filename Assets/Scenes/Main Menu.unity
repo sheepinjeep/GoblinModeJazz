@@ -298,6 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 553454bb68d386541af26fb499f60fbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Saxaphone
+  guy: {fileID: 0}
   TestAction: {fileID: 1902521492}
   currentScale: {fileID: 11400000, guid: 18a86aefdfa7fea47945bc766fe8a04b, type: 2}
   pitchSmoothTime: 0.1
@@ -533,7 +534,7 @@ Camera:
   m_GameObject: {fileID: 760850299}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -898,6 +899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 553454bb68d386541af26fb499f60fbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  guy: {fileID: 0}
   TestAction: {fileID: 0}
   currentScale: {fileID: 11400000, guid: 40fa89fa3bb8a1141abf98159d168551, type: 2}
   pitchSmoothTime: 0.05
